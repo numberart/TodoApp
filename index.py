@@ -180,8 +180,7 @@ def add_items():
     current_user = session.get('username')
     current_item = request.form["todoitem"]
     if not current_item:
-        error_message = "Error, item field cannot be empty."
-        return redirect(url_for('/showitems', error_message = error_message))
+        return redirect(url_for('home'))
     model.add_item(current_user, name_list, request.form['todoitem'], dt)
     return redirect(url_for('home'))
 
